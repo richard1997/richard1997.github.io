@@ -55,12 +55,6 @@
 
     <script type="module">import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
-        // PUBLIC anon key (read-only)
-        const db = createClient(
-            "https://cacsrtztwqghqghptije.supabase.co",
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw"
-        );
-
         // Read ?app=xxx from URL
         const params = new URLSearchParams(window.location.search);
         const appName = params.get("app");
