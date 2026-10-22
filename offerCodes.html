@@ -65,6 +65,13 @@
         const params = new URLSearchParams(window.location.search);
         const appName = params.get("app");
 
+        const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNhY3NydHp0d3FnaHFnaHB0aWplIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk5NTQ2MzEsImV4cCI6MjA5NTUzMDYzMX0.2tmydkVxYDuROELojObooEvsxSIb2PjSqiFl57gsROw";
+
+        const db = createClient(
+            "https://cacsrtztwqghqghptije.supabase.co",
+            SUPABASE_ANON_KEY
+        );
+
         // Update title dynamically
         const titleEl = document.getElementById("title");
         if (appName) {
@@ -134,7 +141,11 @@
                     "https://cacsrtztwqghqghptije.supabase.co/functions/v1/mark-used",
                     {
                         method: "POST",
-                        headers: { "Content-Type": "application/json" },
+                        headers: {
+                            "Content-Type": "application/json",
+                            "apikey": SUPABASE_ANON_KEY,
+                            "Authorization": `Bearer ${SUPABASE_ANON_KEY}`
+                        },
                         body: JSON.stringify({ id, platform })
                     }
                 );
